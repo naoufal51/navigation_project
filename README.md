@@ -78,4 +78,11 @@ Utilize configurations in `main_runner.py` for tuning.
 Contributions are welcome! Please fork this repository, make your enhancements, and initiate a pull request.
 
 ## 🙌 Acknowledgement
-[Udacity](https://www.udacity.com/) for providing the starter code and training environment.
+This project draws inspiration from :
+1. [DRLND](https://github.com/udacity/deep-reinforcement-learning#dependencies)
+2. [stable-baselines3](https://stable-baselines3.readthedocs.io/en/master/)
+
+### License
+You can freely use the code present in the repo.
+
+For modules provided by Udacity DRLND check their repo [DRLND](https://github.com/udacity/deep-reinforcement-learning#dependencies).
