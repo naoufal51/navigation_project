@@ -70,14 +70,16 @@ The benchmark for success in this banana collection environment is to average a 
 ### Background:
 Given an agent and an environment, the agent interacts with its environment over discretized time steps. 
 
-Indeed, at a given time step $t$:
+Indeed, at a given time step \\[t\\]:
 1. The agent observes the environment, which is represented by a vector $s_t$ from the state space $\mathcal{S}$,
 2. Given a policy, the agent selects an action $a_t$ from the action space $\mathcal{A}$. 
 3. The environment outputs the reward, a scalar $r_{t+1}$  from the set $\mathcal{R}$, and transitions to a new state $s_{t+1}$.
 
 The agent follows a policy $\pi$, which maps the state space to the action space: $\pi: \mathcal{S} \rightarrow \mathcal{A}$. We usually design the policy to maximize the return:
 
-$$G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}$$
+$$
+G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}
+$$
 
 where $\gamma$ is a discount factor in the range $[0,1]$.
 
