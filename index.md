@@ -70,7 +70,7 @@ The benchmark for success in this banana collection environment is to average a 
 ### Background:
 Given an agent and an environment, the agent interacts with its environment over discretized time steps. 
 
-Indeed, at a given time step \\[t\\]:
+Indeed, at a given time step \\(t\\):
 1. The agent observes the environment, which is represented by a vector $s_t$ from the state space $\mathcal{S}$,
 2. Given a policy, the agent selects an action $a_t$ from the action space $\mathcal{A}$. 
 3. The environment outputs the reward, a scalar $r_{t+1}$  from the set $\mathcal{R}$, and transitions to a new state $s_{t+1}$.
