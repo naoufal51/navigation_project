@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Redirecting to report.md
+title: Navigation Project Report
+permalink: /
 ---
 
-<meta http-equiv="refresh" content="0; URL='report.md'" />
-
+{% include_relative report.md %}
