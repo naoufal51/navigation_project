@@ -220,7 +220,9 @@ In the next section, we will present how we implemented out system.
   - **Value Stream**: Outputs the state's value through a single node.
   - **Advantage Stream**: Outputs action advantages, matching the action space's dimensionality.
   - **Q-value Synthesis**: 
-    \\[Q(s,a) = V(s) + (A(s,a) - mean(A(s,all\_actions)))\\]
+\\[
+Q(s,a) = V(s) + (A(s,a) - \text{mean}(A(s,all\_actions)))
+\\]
 
 ### Experience Replay:
 - Uses a buffer with `BUFFER_SIZE = 10000`. Samples `BATCH_SIZE = 64` experiences per update.
