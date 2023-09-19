@@ -89,9 +89,7 @@ Indeed, at a given time step $t$:
 
 The agent follows a policy $\pi$, which maps the state space to the action space: $\pi: \mathcal{S} \rightarrow \mathcal{A}$. We usually design the policy to maximize the return:
 
-\\[
-G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1
-\\]
+\\[G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}\\]
 
 where $\gamma$ is a discount factor in the range $[0,1]$.
 
