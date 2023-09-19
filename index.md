@@ -221,7 +221,7 @@ In the next section, we will present how we implemented out system.
   - **Advantage Stream**: Outputs action advantages, matching the action space's dimensionality.
   - **Q-value Synthesis**: 
 \\[
-Q(s,a) = V(s) + (A(s,a) - \text{mean}(A(s,all\_actions)))
+Q(s,a) = V(s) + (A(s,a) - \text{mean}(A(s,Actions)))
 \\]
 
 ### Experience Replay:
