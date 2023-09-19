@@ -2,6 +2,10 @@
 
 Train an agent to navigate within a large environment (similar to Banana Collector environment) using advanced Deep Q-Network (DQN) techniques.
 
+**Here is a demo of a trained agent:**
+
+https://github.com/naoufal51/navigation_project/assets/15954923/fef889f3-2765-4628-8f29-fb4dcb33ea14
+
 ## 🛠 Setup & Dependencies
 
 1. **Python 3.8 Environment**: 
