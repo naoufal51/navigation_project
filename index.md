@@ -1,19 +1,21 @@
 ---
 ---
 
+---
+---
+
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$', '$']],
-    displayMath: [['$$', '$$']],
-    processEscapes: true
-  }
-});
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
 </script>
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
 
 # Navigation Project Report
@@ -87,9 +89,9 @@ Indeed, at a given time step $t$:
 
 The agent follows a policy $\pi$, which maps the state space to the action space: $\pi: \mathcal{S} \rightarrow \mathcal{A}$. We usually design the policy to maximize the return:
 
-$$
-G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}
-$$
+\\[
+G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1
+\\]
 
 where $\gamma$ is a discount factor in the range $[0,1]$.
 
@@ -112,18 +114,19 @@ The value function came to try and address the aforementioned challenges. $V(s)$
 
 The action-value $Q^{\pi}(s, a)$ function represents the quality of an action taken by an agent in a given state and following the policy $\pi$. Formally, it is defined as follows:
 
-$$Q^{\pi}(s, a) = \mathbb{E}_{\pi} \left[ G_t | s_t = s, a_t = a \right]$$
+\\[Q^{\pi}(s, a) = \mathbb{E}_{\pi} \left[ G_t | s_t = s, a_t = a \right]
+\\]
 
 In other words, it is the expected return of taking an action $a$ at a state $s$ and following the policy $\pi$.
 #### 3. The Q-learning Update Rule
 
 Q-learning, being an off-policy algorithm, the optimized policy is different from the learning one. It aims to learn the optimal $Q^*$ that is defined as:
 
-$$Q^*(s, a) = \max_{\pi} Q^{\pi}(s, a)$$
+\\[Q^*(s, a) = \max_{\pi} Q^{\pi}(s, a)\\]
 
 For a given transition $(s, a, r, s')$, the Q-learning update is performed as:
 
-$$Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]$$
+\\[Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]\\]
 
 Here:
 - $s$ is the current state.
@@ -154,7 +157,7 @@ Given the complexity of our Banana collection environment, we cannot directly ap
 
 In **DQN**, a deep neural network is used to approximate the action-value function:
 
-$$Q(s, a; \theta) \approx Q^*(s, a)$$
+\\[Q(s, a; \theta) \approx Q^*(s, a)\\]
 
 where $\theta$ represents the parameters of the neural network.
 
@@ -177,7 +180,7 @@ When deep learning was introduced to Q-learning through **DQN**, it was shown to
 
 **Double DQN** was introduced to mitigate this issue by decoupling the action selection from its evaluation (corresponding Q-value):
 
-$$\mathcal{L}(\theta) = \mathbb{E} \left[ \left( r + \gamma Q(s', \arg\max_{a'} Q(s', a'; \theta); \theta^-) - Q(s, a; \theta) \right)^2 \right]$$
+\\[\mathcal{L}(\theta) = \mathbb{E} \left[ \left( r + \gamma Q(s', \arg\max_{a'} Q(s', a'; \theta); \theta^-) - Q(s, a; \theta) \right)^2 \right]\\]
 
 1. **Action Selection**: We use the main network to select the action $a'$ that maximizes the Q-value for the next state $s'$, $\arg\max_{a'} Q(s', a'; \theta)$.
 2. **Q-value Evaluation**: Using the selected action $a'$, we use a stable network such as the target network to evaluate its Q-value, $Q(s', \arg\max_{a'} Q(s', a'; \theta); \theta^-)$.
@@ -189,7 +192,7 @@ By following this procedure, **DDQN** mitigates the bias due to overestimation, 
 While DQN provides robust performance, its architecture confounds the state and the action. There might exist some cases where the value of the state trumps the value of each possible action, and therefore knowing the value of the state is sufficient. In other words, these types of states don't require an in-depth action-value distinction as all the possible actions would lead to the same outcome.
 
 Based on this observation, **Dueling DQN** decouples the state-value function $V(s)$ from the state-dependant action advantage $A(s,a)$. So, instead of approximating the $Q$ function directly, we decompose its computation into two streams/networks as follows:
-$$Q(s, a; \theta, \alpha, \beta) = V(s; \theta, \beta) + \left( A(s, a; \theta, \alpha) - \frac{1}{|A|}\sum_{a'} A(s, a'; \theta, \alpha) \right)$$
+\\[Q(s, a; \theta, \alpha, \beta) = V(s; \theta, \beta) + \left( A(s, a; \theta, \alpha) - \frac{1}{|A|}\sum_{a'} A(s, a'; \theta, \alpha) \right)\\]
 
 The architecture is composed of:
 1. A common feature extraction module.
